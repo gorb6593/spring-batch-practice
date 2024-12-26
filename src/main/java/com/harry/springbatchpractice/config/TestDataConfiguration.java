@@ -31,12 +31,4 @@ public class TestDataConfiguration {
                 }, transactionManager)
                 .build();
     }
-
-    @Scheduled(fixedDelay = 5000)  // 5초마다 실행
-    public void runJob() throws Exception {
-        JobParameters parameters = new JobParametersBuilder()
-                .addLong("time", System.currentTimeMillis())
-                .toJobParameters();
-        jobLauncher.run(testJob, parameters);
-    }
 }
